@@ -13,7 +13,7 @@ This is a team project website created by VisionLab.
 ## Technologies
 - HTML
 - CSS
--Javascript
+-JAVASCRIPT
 
 ## GitHub Pages
 https://openvisionlab.github.io/HomePage/
