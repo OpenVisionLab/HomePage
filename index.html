@@ -237,14 +237,31 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero-section">
         <div class="hero-content">
             <div class="hero-text">
                 <h2>Welcome to VisionLab</h2>
-                <p>
+                <p id="intro-text">
                     A group of students interested in various computer science fields,
                     including ML and AI, who enjoy challenging themselves through projects.
                 </p>
+
+                <button onclick="changeText()" class="info-button">
+                    Change Text
+                </button>
+
+                <button onclick="showMessage()" class="info-button">
+                    Click Me
+                </button>
+
+                <button onclick="changeHeroColor()" class="info-button">
+                    Change Color
+                </button>
+
+                <button onclick="toggleAboutCard()" class="info-button">
+                    Hide About
+                </button>
+                <p id="message"></p>
             </div>
 
             <div class="hero-image-box">
@@ -254,7 +271,7 @@
     </section>
 
     <section id="about">
-        <div class="card">
+        <div class="card" id="about-card">
             <h2>About</h2>
             <p>
                 VisionLab is a student-led project focused on exploring computer science fields.
@@ -292,6 +309,62 @@
     <footer>
         <p>© 2026 VisionLab. All rights reserved.</p>
     </footer>
+
+    <script>
+    function showMessage() {
+        document.getElementById("message").innerHTML = "Welcome to VisionLab!";
+    }
+    function changeText() {
+        document.getElementById("intro-text").innerHTML =
+        "We also explore Web Development, Data Science, and real-world projects!";
+    }
+    
+    let isChanged = false;
+    
+    function changeHeroColor() {
+        const hero = document.getElementById("hero-section");
+        
+        if (isChanged === false) {
+            hero.style.background = "linear-gradient(135deg, #064e3b, #022c22)";
+            isChanged = true;
+        } else {
+            hero.style.background = "linear-gradient(135deg, #0c0a3c, #031233)";
+            isChanged = false;
+        }
+    }
+    
+    function changeHeroColor() {
+        const hero = document.getElementById("hero-section");
+        const button = event.target;
+        
+        if (isChanged === false) {
+            hero.style.background = "linear-gradient(135deg, #064e3b, #022c22)";
+            button.innerText = "Reset Color";
+            isChanged = true;
+        } else {
+            hero.style.background = "linear-gradient(135deg, #0c0a3c, #031233)";
+            button.innerText = "Change Color";
+            isChanged = false;
+        }
+    }
+
+    let isAboutVisible = true;
+    
+    function toggleAboutCard() {
+        const aboutCard = document.getElementById("about-card");
+        const button = event.target;
+        
+        if (isAboutVisible === true) {
+            aboutCard.style.display = "none";
+            button.innerText = "Show About";
+            isAboutVisible = false;
+        } else {
+            aboutCard.style.display = "block";
+            button.innerText = "Hide About";
+            isAboutVisible = true;
+        }
+    }
+    </script>
 
 </body>
 </html>
